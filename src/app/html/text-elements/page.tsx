@@ -1,6 +1,6 @@
 // src/app/html/text-elements/page.tsx
 import Link from "next/link";
-import CodeBlock from "../_components/ui/CodeBlock";
+import CodeBlock from "../../_components/ui/CodeBlock";
 import { ArrowLeft, ArrowRight, BookOpen, Info, Lightbulb } from "lucide-react";
 
 export default function TextElementsPage() {
@@ -9,7 +9,7 @@ export default function TextElementsPage() {
             <div className="container mx-auto px-4 max-w-4xl">
                 {/* Breadcrumb Navigation */}
                 <div className="text-sm mb-8 text-text-light flex items-center">
-                    <Link href="/" className="hover:text-primary-dark transition-colors">Home</Link>
+                    <Link href="/public" className="hover:text-primary-dark transition-colors">Home</Link>
                     <span className="mx-2">/</span>
                     <Link href="/html" className="hover:text-primary-dark transition-colors">HTML</Link>
                     <span className="mx-2">/</span>

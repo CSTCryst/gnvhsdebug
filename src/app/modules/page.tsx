@@ -8,75 +8,52 @@ export default function ModulesPage() {
     const modules = [
         {
             id: "html-basics",
-            title: "HTML Fundamentals",
+            title: "HTML/CSS Quarter 1",
             description: "Master the essential building blocks of web pages with HTML5",
-            fileUrl: "https://drive.google.com/file/d/1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5/view?usp=sharing",
-            downloadUrl: "https://drive.google.com/uc?export=download&id=1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5",
-            lessons: 8,
+            fileUrl: "https://drive.google.com/drive/folders/1rRkP7qh1MsybH7_FNOI6uQ-oRB1NBgB9?usp=sharing",
+            downloadUrl: "https://drive.google.com/uc?export=download&id=1rRkP7qh1MsybH7_FNOI6uQ-oRB1NBgB9",
+            lessons: 5,
             duration: "2 hours",
             level: "Beginner",
             category: "HTML"
         },
         {
             id: "css-styling",
-            title: "CSS Styling Basics",
+            title: "HTML/CSS Quarter 2",
             description: "Learn to style your HTML elements with CSS properties and selectors",
-            fileUrl: "https://drive.google.com/file/d/1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5/view?usp=sharing",
-            downloadUrl: "https://drive.google.com/uc?export=download&id=1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5",
-            lessons: 10,
-            duration: "3 hours",
+            fileUrl: "https://drive.google.com/drive/folders/13EOh077FIyCLg3ChAWfxDPf9w8xGW_hZ?usp=sharing",
+            downloadUrl: "https://drive.google.com/uc?export=download&id=13EOh077FIyCLg3ChAWfxDPf9w8xGW_hZ",
+            lessons: 5,
+            duration: "2 hours",
             level: "Beginner",
-            category: "CSS"
+            category: "HTML"
         },
         {
             id: "flexbox-layout",
-            title: "Flexbox Layout Techniques",
+            title: "HTML/CSS Quarter 3",
             description: "Create flexible and responsive layouts using CSS Flexbox",
-            fileUrl: "https://drive.google.com/file/d/1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5/view?usp=sharing",
-            downloadUrl: "https://drive.google.com/uc?export=download&id=1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5",
+            fileUrl: "https://drive.google.com/drive/folders/1GKH-2n8EEXxQ0jXvkrHUyu23-zEpp3Vw?usp=sharing",
+            downloadUrl: "https://drive.google.com/uc?export=download&id=1GKH-2n8EEXxQ0jXvkrHUyu23-zEpp3Vw",
             lessons: 6,
             duration: "2.5 hours",
             level: "Intermediate",
-            category: "CSS"
+            category: "HTML"
         },
         {
             id: "responsive-design",
-            title: "Responsive Web Design",
+            title: "HTML/CSS Quarter 4",
             description: "Build websites that look great on any device with responsive techniques",
-            fileUrl: "https://drive.google.com/file/d/1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5/view?usp=sharing",
-            downloadUrl: "https://drive.google.com/uc?export=download&id=1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5",
+            fileUrl: "https://drive.google.com/drive/folders/1TZK799qe7bp3M3BNT6Ia_bCEN8Byoa7M?usp=sharing",
+            downloadUrl: "https://drive.google.com/uc?export=download&id=1TZK799qe7bp3M3BNT6Ia_bCEN8Byoa7M",
             lessons: 8,
             duration: "3 hours",
             level: "Intermediate",
-            category: "CSS"
-        },
-        {
-            id: "css-grid",
-            title: "CSS Grid Systems",
-            description: "Master two-dimensional layouts with CSS Grid for complex designs",
-            fileUrl: "https://drive.google.com/file/d/1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5/view?usp=sharing",
-            downloadUrl: "https://drive.google.com/uc?export=download&id=1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5",
-            lessons: 7,
-            duration: "2.5 hours",
-            level: "Intermediate",
-            category: "CSS"
-        },
-        {
-            id: "html-forms",
-            title: "HTML Forms & Validation",
-            description: "Create interactive forms with HTML5 and basic validation techniques",
-            fileUrl: "https://drive.google.com/file/d/1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5/view?usp=sharing",
-            downloadUrl: "https://drive.google.com/uc?export=download&id=1RAzDq5nPDNdxKII2qG1Iy5htQ_WZ2AI5",
-            lessons: 6,
-            duration: "2 hours",
-            level: "Beginner",
             category: "HTML"
         },
     ];
 
     // Filter modules by category
     const htmlModules = modules.filter(module => module.category === "HTML");
-    const cssModules = modules.filter(module => module.category === "CSS");
 
     return (
         <div className="bg-background">
@@ -184,63 +161,6 @@ export default function ModulesPage() {
     </div>
     </section>
 
-    {/* CSS Modules */}
-    <section className="py-12 bg-gray-50">
-    <div className="container mx-auto px-4">
-    <h2 className="text-2xl font-bold text-dark mb-8 flex items-center">
-    <span className="w-8 h-8 bg-secondary-light rounded-lg flex items-center justify-center text-secondary-dark mr-3">
-    <FileText size={18} />
-    </span>
-    CSS Modules
-    </h2>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {cssModules.map((module) => (
-                <div key={module.id} className="bg-white rounded-xl border border-gray-100 shadow-soft hover:shadow-card overflow-hidden transition-all">
-            <div className="h-2 bg-secondary-dark"></div>
-                <div className="p-6">
-            <div className="flex justify-between items-start mb-4">
-            <h3 className="text-xl font-bold text-dark">{module.title}</h3>
-                <span className="px-3 py-1 bg-secondary-light/50 text-secondary-dark text-xs font-medium rounded-full">
-            {module.level}
-            </span>
-            </div>
-
-            <p className="text-text-light mb-6 line-clamp-2">
-            {module.description}
-            </p>
-
-            <div className="flex items-center justify-between text-sm text-text-secondary mb-6">
-            <span className="flex items-center">
-            <FileText size={14} className="mr-1" />
-            {module.lessons} lessons
-                </span>
-        <span>{module.duration}</span>
-        </div>
-
-        <div className="flex gap-2">
-    <a
-        href={module.fileUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex-1 btn-secondary-sm flex items-center justify-center gap-1"
-    >
-    <ExternalLink size={14} />
-    View Module
-    </a>
-    <a
-    href={module.downloadUrl}
-    className="btn-outline-sm flex items-center justify-center gap-1 px-3"
-    >
-    <Download size={14} />
-    </a>
-    </div>
-    </div>
-    </div>
-))}
-    </div>
-    </div>
-    </section>
 
     {/* Recommendation Section */}
     <section className="py-16 bg-gradient-to-br from-primary-light/30 to-white">
