@@ -4,8 +4,8 @@ import SearchBar from "../_components/ui/SearchBar";
 import { FileText, Code, ArrowRight } from "lucide-react";
 
 interface SearchPageProps {
-    params: { [key: string]: string | string[] };
-    searchParams: { [key: string]: string | string[] | undefined };
+    params: Record<string, string | string[]>;
+    searchParams: Record<string, string | string[] | undefined>;
 }
 
 // Mock search results - in a real app, this would come from a database
