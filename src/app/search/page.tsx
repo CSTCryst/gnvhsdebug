@@ -3,9 +3,6 @@ import Link from "next/link";
 import SearchBar from "../_components/ui/SearchBar";
 import { FileText, Code, ArrowRight } from "lucide-react";
 
-// Use the correct type definition for App Router pages in Next.js 15
-type SearchParams = { [key: string]: string | string[] | undefined };
-
 // Mock search results - in a real app, this would come from a database
 const mockResults = [
     {
@@ -45,9 +42,14 @@ const mockResults = [
     }
 ];
 
-// Use the correct function signature for App Router pages in Next.js 15
-export default function SearchPage({ searchParams }: { searchParams: SearchParams }) {
-    const query = typeof searchParams.q === 'string' ? searchParams.q : '';
+// Use a simple function for a Next.js App Router page component
+export default function SearchPage({
+                                       searchParams,
+                                   }: {
+    // Use a more basic type here that won't conflict with Next.js internal types
+    searchParams: { q?: string }
+}) {
+    const query = searchParams.q || "";
 
     // Filter results based on query (case-insensitive)
     const filteredResults = query
