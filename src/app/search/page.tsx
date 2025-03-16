@@ -48,20 +48,15 @@ export const metadata: Metadata = {
     description: 'Search for HTML and CSS tutorials',
 };
 
-// For Next.js 15, we need to use the correct type signature
-interface PageProps {
-    params: Record<string, string>;
-    searchParams?: Record<string, string | string[] | undefined>;
-}
-
-export default function SearchPage({ searchParams = {} }: PageProps) {
-    // Handle both string and array cases (Next.js allows both)
-    const queryParam = searchParams.q;
-    const query = typeof queryParam === 'string'
-        ? queryParam
-        : Array.isArray(queryParam)
-            ? queryParam[0]
-            : "";
+// Using a simpler approach without custom types
+export default function SearchPage({
+                                       searchParams,
+                                   }: {
+    searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+    // Handle the query parameter
+    const queryParam = searchParams?.q || "";
+    const query = Array.isArray(queryParam) ? queryParam[0] : queryParam;
 
     // Filter results based on query (case-insensitive)
     const filteredResults = query
