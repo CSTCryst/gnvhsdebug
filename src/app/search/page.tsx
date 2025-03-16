@@ -4,7 +4,8 @@ import SearchBar from "../_components/ui/SearchBar";
 import { FileText, Code, ArrowRight } from "lucide-react";
 
 interface SearchPageProps {
-    searchParams: { q?: string };
+    params: { [key: string]: string | string[] };
+    searchParams: { [key: string]: string | string[] | undefined };
 }
 
 // Mock search results - in a real app, this would come from a database
@@ -47,13 +48,13 @@ const mockResults = [
 ];
 
 export default function SearchPage({ searchParams }: SearchPageProps) {
-    const query = searchParams.q ?? "";
+    const query = typeof searchParams.q === 'string' ? searchParams.q : '';
 
     // Filter results based on query (case-insensitive)
     const filteredResults = query
         ? mockResults.filter(
             result =>
-                result.title.toLowerCase().includes(query.toLowerCase()) ??
+                result.title.toLowerCase().includes(query.toLowerCase()) ||
                 result.description.toLowerCase().includes(query.toLowerCase())
         )
         : [];
@@ -160,7 +161,7 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
                     ) : (
                         <div className="text-center py-16 bg-gray-50 rounded-xl">
                             <p className="text-xl text-text-secondary mb-4">Enter a search term to find tutorials</p>
-                            <p className="text-text-light mb-8">Search for topics like "headings", "CSS box model", or "flexbox"</p>
+                            <p className="text-text-light mb-8">Search for topics like &quot;headings&quot;, &quot;CSS box model&quot;, or &quot;flexbox&quot;</p>
                             <div className="flex justify-center space-x-4">
                                 <Link
                                     href="/html"
