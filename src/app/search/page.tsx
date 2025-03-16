@@ -47,13 +47,13 @@ const mockResults = [
 ];
 
 export default function SearchPage({ searchParams }: SearchPageProps) {
-    const query = searchParams.q || "";
+    const query = searchParams.q ?? "";
 
     // Filter results based on query (case-insensitive)
     const filteredResults = query
         ? mockResults.filter(
             result =>
-                result.title.toLowerCase().includes(query.toLowerCase()) ||
+                result.title.toLowerCase().includes(query.toLowerCase()) ??
                 result.description.toLowerCase().includes(query.toLowerCase())
         )
         : [];
