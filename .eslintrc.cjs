@@ -14,6 +14,7 @@ const config = {
   ],
   "rules": {
     'react/no-unescaped-entities': 'off',
+    '@typescript-eslint/consistent-indexed-object-style': 'off',
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/consistent-type-imports": [
