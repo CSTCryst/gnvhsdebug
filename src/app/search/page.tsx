@@ -2,6 +2,7 @@
 import Link from "next/link";
 import SearchBar from "../_components/ui/SearchBar";
 import { FileText, Code, ArrowRight } from "lucide-react";
+import { Metadata } from "next";
 
 // Mock search results - in a real app, this would come from a database
 const mockResults = [
@@ -42,13 +43,18 @@ const mockResults = [
     }
 ];
 
-// Updated type definition for Next.js 15.x
-type SearchPageProps = {
-    params: {};
-    searchParams: { [key: string]: string | string[] | undefined };
+export const metadata: Metadata = {
+    title: 'Search Tutorials',
+    description: 'Search for HTML and CSS tutorials',
 };
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
+// For Next.js 15, we need to use the correct type signature
+interface PageProps {
+    params: Record<string, string>;
+    searchParams?: Record<string, string | string[] | undefined>;
+}
+
+export default function SearchPage({ searchParams = {} }: PageProps) {
     // Handle both string and array cases (Next.js allows both)
     const queryParam = searchParams.q;
     const query = typeof queryParam === 'string'
