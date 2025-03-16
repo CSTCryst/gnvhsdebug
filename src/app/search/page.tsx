@@ -42,14 +42,20 @@ const mockResults = [
     }
 ];
 
-// Use a simple function for a Next.js App Router page component
-export default function SearchPage({
-                                       searchParams,
-                                   }: {
-    // Use a more basic type here that won't conflict with Next.js internal types
-    searchParams: { q?: string }
-}) {
-    const query = (searchParams.q as string) || "";
+// Updated type definition for Next.js 15.x
+type SearchPageProps = {
+    params: {};
+    searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function SearchPage({ searchParams }: SearchPageProps) {
+    // Handle both string and array cases (Next.js allows both)
+    const queryParam = searchParams.q;
+    const query = typeof queryParam === 'string'
+        ? queryParam
+        : Array.isArray(queryParam)
+            ? queryParam[0]
+            : "";
 
     // Filter results based on query (case-insensitive)
     const filteredResults = query
