@@ -49,7 +49,7 @@ export default function SearchPage({
     // Use a more basic type here that won't conflict with Next.js internal types
     searchParams: { q?: string }
 }) {
-    const query = searchParams.q || "";
+    const query = (searchParams.q as string) || "";
 
     // Filter results based on query (case-insensitive)
     const filteredResults = query
